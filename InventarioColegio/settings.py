@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'InventarioColegio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE' : 'django.db.backends.mysql',
-        'NAME': 'inventariocolegio',
-        'USER': 'root',
-        'PASSWORD': 'adrgutierrez',
-        'HOST':'127.0.0.1',
+        'NAME': 'vy1e01ypx8cg9mui',
+        'USER': 'cym0bldq691fxhlh',
+        'PASSWORD': 'ferhugrbhscp62ge',
+        'HOST':'xlf3ljx3beaucz9x.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         'PORT':'3306'
     }
 }
