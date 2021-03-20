@@ -25,7 +25,7 @@ SECRET_KEY = '5kz=_zcr!%1o6!0!v!mf@kp3)wz279d*1f6lis@!5g3hdscbnn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['inventarioolegiodanny.herokuapp.com']
 
 
 # Application definition
