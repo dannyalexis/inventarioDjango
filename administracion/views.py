@@ -294,7 +294,7 @@ class MovimientosView(ListCreateAPIView):
                 return Response({
                     "ok":False,
                     "content":None,
-                    "message":"No se logro ingresar  correctamente los datos, producto, persona o usuario no esta correctamente habilitado"
+                    "message":"No se logro ingresar  correctamente los datos, producto, persona o usuario no esta correctamente habilitados"
                 }, status=status.HTTP_400_BAD_REQUEST)
        else:
             return Response({
