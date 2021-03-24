@@ -56,11 +56,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-
-    "localhost:8000"
-
-)
 
 REST_FRAMEWORK = {
     
