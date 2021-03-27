@@ -272,34 +272,33 @@ class MovimientosView(ListCreateAPIView):
         respuesta = self.get_serializer(self.get_queryset(), many=True)
         return Response({
             "ok":True,
-            "content":respuesta.data,
-            "message":None
-        }, status=status.HTTP_200_OK)
+            "content":respuesta.data
+        })
 
     def post(self, request):
        info= request.data
-       productoPersonaUsuario = self.get_serializer(data=info)
-       if productoPersonaUsuario.is_valid():
-           producto = ProductoModel.objects.filter(productoId=['productoId']).first()
-           persona = PersonaModel.objects.filter(personaId=['personaId']).first()
-           usuario = UsuarioModel.objects.filter(usuarioId=['usuarioId']).first()
-           if producto.productoEstado==True and persona.personaEstado==True and usuario.usuarioEstado==True:
-                productoPersonaUsuario.save()
+       productoUsuario = self.get_serializer(data=info)
+       if productoUsuario.is_valid():
+           producto = ProductoModel.objects.filter(productoId=info['productoId']).first()
+           #persona = PersonaModel.objects.filter(personaId=['personaId']).first()
+           usuario = UsuarioModel.objects.filter(usuarioId=info['usuarioId']).first()
+           if producto.productoEstado==True and usuario.usuarioEstado==True:
+                productoUsuario.save()
                 return Response({
                     "ok":True,
-                    "content":productoPersonaUsuario.data,
+                    "content":productoUsuario.data,
                     "message":"Se agrego exitosamente el movimiento"
                 }, status.HTTP_201_CREATED)
            else:
                 return Response({
                     "ok":False,
                     "content":None,
-                    "message":"No se logro ingresar  correctamente los datos, producto, persona o usuario no esta correctamente habilitados"
+                    "message":"No se logro ingresar  correctamente los datos, producto o usuario no esta correctamente habilitados"
                 }, status=status.HTTP_400_BAD_REQUEST)
        else:
             return Response({
                 "ok":False,
-                "content":productoPersonaUsuario.errors,
+                "content":productoUsuario.errors,
                 "message":"Hubo un error al registrar el movimiento"
             })
 

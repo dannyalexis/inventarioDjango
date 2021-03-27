@@ -21,7 +21,7 @@ class ProductoModel(models.Model):
     productoNombre = models.CharField(max_length=45, db_column='producto_nombre')
     productoStock = models.CharField(max_length=45, db_column='producto_stock')
     productoDescripcion = models.CharField(max_length=45, db_column='producto_descripcion')
-    productoImagen = models.CharField(max_length=45, db_column='producto_imagen')
+    #productoImagen = models.CharField(max_length=45, db_column='producto_imagen')
     productoEstado = models.BooleanField(default=True, db_column='producto_estado')
     productoMedida= models.CharField(max_length=45, db_column='producto_medida')
     class Meta:
@@ -67,7 +67,7 @@ class MovimientoModel(models.Model):
     movimientoTipo = models.CharField(max_length=45, db_column='movimiento_tipo')
     movimientoCantidad = models.IntegerField(db_column='movimiento_cantidad')
     movimientoFecha = models.DateTimeField(db_column='movimiento_fecha')
-    personaId = models.ForeignKey(PersonaModel, on_delete=models.PROTECT, db_column='persona_id', related_name='PersonaMovimiento')
+    #personaId = models.ForeignKey(PersonaModel, on_delete=models.PROTECT, db_column='persona_id', related_name='PersonaMovimiento')
     usuarioId = models.ForeignKey(UsuarioModel, on_delete=models.PROTECT, db_column='usuario_id', related_name='UsuarioMovimiento')
     productoId = models.ForeignKey(ProductoModel, on_delete=models.PROTECT, db_column='producto_id', related_name='ProductoMovimiento')
     
