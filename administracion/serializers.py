@@ -38,27 +38,8 @@ class CategoriaSerializer(serializers.ModelSerializer):
         self.instance.save()
         return self.instance
 
-class UsuarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UsuarioModel
-        fields="__all__"
-    
-    def update(self):
-        self.instance.usuarioDocumento = self.validated_data.get("usuarioDocumento", self.instance.usuarioDocumento)
-        self.instance.usuarioCargo = self.validated_data.get("usuarioCargo", self.instance.usuarioCargo)
-        self.instance.usuarioNombre = self.validated_data.get("usuarioNombre",self.instance.usuarioNombre)
-        self.instance.usuarioTelefono = self.validated_data.get("usuarioTelefono", self.instance.usuarioTelefono)
-        self.instance.usuarioUsers = self.validated_data.get("usuarioUsers", self.instance.usuarioUsers)
-        self.instance.usuarioEstado = self.validated_data.get("usuarioEstado", self.instance.usuarioEstado)
-        self.instance.save()
-        return self.instance
-
-    def delete(self):
-        self.instance.usuarioEstado = False
-        self.instance.save()
-        return self.instance
-
 class PersonaSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = PersonaModel
         fields="__all__"
@@ -73,6 +54,27 @@ class PersonaSerializer(serializers.ModelSerializer):
     
     def delete(self):
         self.instance.personaEstado = False
+        self.instance.save()
+        return self.instance
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UsuarioModel
+        fields="__all__"
+    
+    def update(self):
+        self.instance.usuarioDocumento = self.validated_data.get("usuarioDocumento", self.instance.usuarioDocumento)
+        self.instance.usuarioCargo = self.validated_data.get("usuarioCargo", self.instance.usuarioCargo)
+        self.instance.usuarioNombre = self.validated_data.get("usuarioNombre",self.instance.usuarioNombre)
+        self.instance.usuarioTelefono = self.validated_data.get("usuarioTelefono", self.instance.usuarioTelefono)
+        self.instance.usuarioUsers = self.validated_data.get("usuarioUsers", self.instance.usuarioUsers)
+        self.instance.usuarioEstado = self.validated_data.get("usuarioEstado", self.instance.usuarioEstado)
+        self.instance.personaId = self.validated_data.get("personaId",self.instance.personaId)
+        self.instance.save()
+        return self.instance
+
+    def delete(self):
+        self.instance.usuarioEstado = False
         self.instance.save()
         return self.instance
 

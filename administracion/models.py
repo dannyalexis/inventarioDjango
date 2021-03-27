@@ -54,6 +54,8 @@ class UsuarioModel(models.Model):
     usuarioTelefono= models.CharField(max_length=45, db_column='usuario_telefono')
     usuarioUsers= models.CharField(max_length=45, db_column='usuario_users')
     usuarioEstado= models.BooleanField(default=True, db_column='usuario_estado')
+
+    personaId = models.ForeignKey(PersonaModel, on_delete=models.PROTECT, db_column='persona_id', related_name='PersonaUsuario')
     class Meta:
         db_table='t_usuario'
         verbose_name_plural='Usuarios'
